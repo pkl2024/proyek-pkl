@@ -86,24 +86,24 @@ include '../listlink.php';
                     <th width="5%">No</th>
                     <th><center>NISN</center></th>
                     <th><center>Nama Lengkap</center></th>
-                    <th><center>email</center></th>
-                    <th><center>No HP</center></th>
+                    <th><center>Email</center></th>
+                    <th><center>NO HP</center></th>
                     <th><center>Aksi</center></th>
                   </tr>
                   <thead>
                     <tbody>
                         <?php
                         $no = 1;
-                        $sqlpanggilpengguna = mysqli_query($koneksi, "SELECT * FROM tbl_pengguna") or die (mysqli_error($koneksi));
-                        if (mysqli_num_rows($sqlpanggilpengguna)>0){
+                        $sqlpanggilsiswa = mysqli_query($koneksi, "SELECT * FROM tbl_siswa") or die (mysqli_error($koneksi));
+                        if (mysqli_num_rows($sqlpanggilsiswa)>0){
                             //jika ada data di database
 
                             //lakukan perulangan panggilan data
-                            while ($data = mysqli_fetch_array($sqlpanggilpengguna)){
+                            while ($data = mysqli_fetch_array($sqlpanggilsiswa)){
                             ?>
                             <tr>
                                 <td><?=$no++;?></td>
-                                <td><?=$data['NISN'];?></td>
+                                <td><?=$data['nisn'];?></td>
                                 <td><?=$data['nama'];?></td>
                                 <td>
                                   <?php
