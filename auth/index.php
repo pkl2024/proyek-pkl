@@ -8,7 +8,7 @@ require_once '../database/config.php';
 
 <head>
   <meta charset="utf-8">
-  <title>SISFO UNIVERSITAS PERADABAN</title>
+  <title>UNIVERSITAS PERADABAN</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
   <link rel="stylesheet" href="styles/app.min.css"/>
