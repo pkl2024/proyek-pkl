@@ -127,7 +127,7 @@ include '../listlink.php';
                                     </button>
                           
                                 
-                                     <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default" data-nik="<?=$data ['nik'];?>" data-user="<?=$data['user'];?>" data-nama="<?=$data['nama'];?>">
+                                     <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-hapus" data-nik="<?=$data ['nik'];?>" data-user="<?=$data['user'];?>" data-nama="<?=$data['nama'];?>">
                                      <i class="nav-icon fas fa-trash-alt"></i>Hapus   
                                     </button>
                             </center>
@@ -175,7 +175,7 @@ include '../footer.php';
 ?>
  
 </div>
-<div class="modal fade" id="modal-default">
+<div class="modal fade" id="modal-hapus">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header"style="background-color:#800000;"> 
@@ -333,7 +333,7 @@ include '../script.php';
 ?>
 
 <script type="text/javascript">
-  $('#modal-default').on('show.bs.modal',function(e){
+  $('#modal-hapus').on('show.bs.modal',function(e){
     var nik  = $(e.relatedTarget).data('nik');
     var user = $(e.relatedTarget).data('user');
     var nama = $(e.relatedTarget).data('nama');

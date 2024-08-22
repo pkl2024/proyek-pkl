@@ -69,7 +69,7 @@ include '../listlink.php';
         <div class="col-lg-12">
         <div class="card">
               <div class="card-header"style="background-color:#800000">
-                <h3 class="card-title"><font color="ffffff"><i class="nav-icon fas fa-user"></i> &nbsp Data Administrator</font></h3>
+                <h3 class="card-title"><font color="ffffff"><i class="nav-icon fas fa-user"></i> &nbsp Data Siswa</font></h3>
               </div>
               <!-- /.card-header -->
 
@@ -85,7 +85,7 @@ include '../listlink.php';
                   <tr>
                     <th width="5%">No</th>
                     <th><center>NISN</center></th>
-                    <th><center>Nama Lengkap</center></th>
+                    <th><center>Nama</center></th>
                     <th><center>Email</center></th>
                     <th><center>NO HP</center></th>
                     <th><center>Aksi</center></th>
@@ -105,30 +105,18 @@ include '../listlink.php';
                                 <td><?=$no++;?></td>
                                 <td><?=$data['nisn'];?></td>
                                 <td><?=$data['nama'];?></td>
-                                <td>
-                                  <?php
-                                  // punya modal apa?
-                                  $nekat = $data['id_agama'];
-                                  // panggil query agama
-                                  $querynekat = mysqli_query($koneksi, "SELECT agama FROM tbl_agama WHERE id='$nekat'") or die (mysqli_error($koneksi));
-                                  // tampungan array dari query
-                                  $tampungnekat = mysqli_fetch_array($querynekat);
-                                  // tampilkan berdasarkan nama kolom pada database
-                                  $agama = $tampungnekat['agama'];
-
-                                  ?>
-                                  <?=$agama
-                                  ?>
-                                </td>
+                                <td><?=$data['email'];?></td>
+                                <td><?=$data['no_hp'];?></td>
+                               
                                 <td> 
 
                                 <center>
-                                     <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-nik="<?=$data ['nik'];?>" data-user="<?=$data['user'];?>" data-nama="<?=$data['nama'];?>">
+                                     <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-nisn="<?=$data['nisn'];?>" data-nama="<?=$data['nama'];?>" data-email="<?=$data['email'];?>" data-no_hp="<?=$data['no_hp'];?>">
                                      <i class="nav-icon fas fa-edit"></i>Edit  
                                     </button>
                           
                                 
-                                     <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-default" data-nik="<?=$data ['nik'];?>" data-user="<?=$data['user'];?>" data-nama="<?=$data['nama'];?>">
+                                     <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-hapus" data-nisn="<?=$data['nisn'];?>" data-nama="<?=$data['nama'];?>" data-email="<?=$data['email'];?>" data-no_hp="<?=$data['no_hp'];?>">
                                      <i class="nav-icon fas fa-trash-alt"></i>Hapus   
                                     </button>
                             </center>
@@ -176,7 +164,7 @@ include '../footer.php';
 ?>
  
 </div>
-<div class="modal fade" id="modal-default">
+<div class="modal fade" id="modal-hapus">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header"style="background-color:#800000;"> 
@@ -192,23 +180,23 @@ include '../footer.php';
                       </thead>
                       <tbody>
                       <tr>
-                        <td width="30%">NIK</td>
+                        <td width="30%">NISN</td>
                         <td width="5%">:</td>
-                        <td><input type="text" name="nikterpilih" class="form-control"hidden>
-                        <input type="text" name="nikterpilih2" class="form-control" disabled>
+                        <td><input type="text" name="nisnterpilih" class="form-control"hidden>
+                        <input type="text" name="nisnterpilih2" class="form-control" disabled>
                         </td>
 
                       </tr>
                       <tr>
-                        <td width="30%">Nama Pengguna</td>
+                        <td width="30%">Nama</td>
                         <td width="5%">:</td>
                         <td><input type="text" name="namaterpilih" class="form-control"disabled></td>
 
                       </tr>
                       <tr>
-                        <td width="30%">Username</td>
+                        <td width="30%">email</td>
                         <td width="5%">:</td>
-                        <td><input type="text" name="usernameterpilih" class="form-control"disabled></td>
+                        <td><input type="text" name="emailterpilih" class="form-control"disabled></td>
 
                       </tr>
                       </tbody>
@@ -237,32 +225,25 @@ include '../footer.php';
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form class="form-horizontal" action="tambahdata.php" method="POST" id="tambahdata">
+            <form class="form-horizontal" action="proses.php" method="POST" id="tambahdata">
             <div class="modal-body">
             <div class="form-group">
-                    <label for="nik">NIK</label>
-                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Input NIK">
+                    <label for="nik">NISN</label>
+                    <input type="text" class="form-control" id="nisn" name="nisn" placeholder="Input NISN">
                   </div>
             <div class="form-group">
                     <label for="nama">Nama Pengguna</label>
                     <input type="text" class="form-control" id="nama" name="nama" placeholder="Input Nama Pengguna">
                   </div>
             <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="Input Username">
+                    <label for="username">email</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Input Email">
                   </div>
             <div class="form-group">
-                  <label for="agama">Agama</label>
-                  <select class="custom-select form-control-border" id="agama" name="agama">
-                    <option value="">-- Pilih Agama --</option>
-                    <?php
-                    $sqlpanggilagama = mysqli_query($koneksi,"SELECT * FROM tbl_agama") or die (mysqli_error($koneksi));
-                    while($dt_agama=mysqli_fetch_array($sqlpanggilagama)){
-                      echo '<option value="'.$dt_agama['id'].'"> '.$dt_agama[agama].' </option>';
-                    }
-                    ?>
-                  </select>
+                    <label for="username">NO HP</label>
+                    <input type="text" class="form-control" id="no_hp" name="no_hp" placeholder="Input NO HP">
                   </div>
+            
             </div>
             <div class="modal-footer pull-right">
               <button type="submit" name="tambah" class="btn btn-danger"color="#000000"><h6><b><i class="nav-icon fas fa-download"> &nbsp </i>Tambah Data</b></h6>
@@ -292,23 +273,29 @@ include '../footer.php';
                       </thead>
                       <tbody>
                       <tr>
-                        <td width="30%">NIK</td>
+                        <td width="30%">NISN</td>
                         <td width="5%">:</td>
-                        <td><input type="text" name="ed_nikterpilih" class="form-control"hidden>
-                        <input type="text" name="ed_nikterpilih2" class="form-control" disabled>
+                        <td><input type="text" name="ed_nisnterpilih" class="form-control"hidden>
+                        <input type="text" name="ed_nisnterpilih2" class="form-control" disabled>
                         </td>
 
                       </tr>
                       <tr>
-                        <td width="30%">Username</td>
+                        <td width="30%">Nama</td>
                         <td width="5%">:</td>
-                        <td><input type="text" name="ed_usernameterpilih" class="form-control"disabled></td>
+                        <td><input type="text" name="ed_namaterpilih" class="form-control"></td>
 
                       </tr>
                       <tr>
-                        <td width="30%">Nama Pengguna</td>
+                        <td width="30%">Email</td>
                         <td width="5%">:</td>
-                        <td><input type="text" name="ed_namaterpilih" class="form-control"></td>
+                        <td><input type="text" name="ed_emailterpilih" class="form-control"></td>
+
+                      </tr>
+                      <tr>
+                        <td width="30%">NO HP</td>
+                        <td width="5%">:</td>
+                        <td><input type="text" name="ed_no_hpterpilih" class="form-control"></td>
 
                       </tr>
                      
@@ -334,29 +321,31 @@ include '../script.php';
 ?>
 
 <script type="text/javascript">
-  $('#modal-default').on('show.bs.modal',function(e){
-    var nik  = $(e.relatedTarget).data('nik');
-    var user = $(e.relatedTarget).data('user');
+  $('#modal-hapus').on('show.bs.modal',function(e){
+    var nisn  = $(e.relatedTarget).data('nisn');
     var nama = $(e.relatedTarget).data('nama');
+    var email = $(e.relatedTarget).data('email');
 
-    $(e.currentTarget).find('input[name="nikterpilih"]').val(nik);
-    $(e.currentTarget).find('input[name="nikterpilih2"]').val(nik);
+    $(e.currentTarget).find('input[name="nisnterpilih"]').val(nisn);
+    $(e.currentTarget).find('input[name="nisnterpilih2"]').val(nisn);
 
-    $(e.currentTarget).find('input[name="usernameterpilih"]').val(user);
     $(e.currentTarget).find('input[name="namaterpilih"]').val(nama);
+    $(e.currentTarget).find('input[name="emailterpilih"]').val(email);
   });
   </script>
   <script type="text/javascript">
   $('#modal-edit').on('show.bs.modal',function(e){
-    var ed_nik  = $(e.relatedTarget).data('nik');
-    var ed_user = $(e.relatedTarget).data('user');
+    var ed_nisn  = $(e.relatedTarget).data('nisn'); 
     var ed_nama = $(e.relatedTarget).data('nama');
+    var ed_email = $(e.relatedTarget).data('email');
+    var ed_no_hp = $(e.relatedTarget).data('no_hp');
 
-    $(e.currentTarget).find('input[name="ed_nikterpilih"]').val(ed_nik);
-    $(e.currentTarget).find('input[name="ed_nikterpilih2"]').val(ed_nik);
+    $(e.currentTarget).find('input[name="ed_nisnterpilih"]').val(ed_nisn);
+    $(e.currentTarget).find('input[name="ed_nisnterpilih2"]').val(ed_nisn);
 
-    $(e.currentTarget).find('input[name="ed_usernameterpilih"]').val(ed_user);
     $(e.currentTarget).find('input[name="ed_namaterpilih"]').val(ed_nama);
+    $(e.currentTarget).find('input[name="ed_emailterpilih"]').val(ed_email);
+    $(e.currentTarget).find('input[name="ed_no_hpterpilih"]').val(ed_no_hp);
   });
   </script>
 
