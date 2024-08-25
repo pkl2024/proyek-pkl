@@ -76,8 +76,11 @@ include '../listlink.php';
               <div class="card-body">
 
               <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-tambahdata">
-              <i class="nav-icon fas fa-plush"></i>Tambah Data 
+              <i class="nav-icon fas fa-plush"></i>Tambah Data(Metode Modal)
             </button>
+            <a href="formtambahdata.php" class="btn btn-sm btn-warning"><i class="nav-icon fas fa-download"></i> Tambah Data(metode form)</a>
+
+
             <br>
             <br>
                 <table id="example1" class="table table-bordered table-striped table-s">
@@ -87,6 +90,7 @@ include '../listlink.php';
                     <th><center>NIK</center></th>
                     <th><center>Nama</center></th>
                     <th><center>Agama</center></th>
+                    <th><center>Jenis Kelamin</center></th>
                     <th><center>Aksi</center></th>
                   </tr>
                   <thead>
@@ -117,11 +121,15 @@ include '../listlink.php';
 
                                   ?>
                                   <?=$agama
-                                  ?>
+                                ?>
                                 </td>
+                                <td><?=$data['kelamin'];?></td>
+                                
                                 <td> 
 
                                 <center>
+                                <a href="formedit.php?nik=<?=$data['nik'];?>&nama=<?=$data['nama'];?>&user=<?=$data['user'];?>&agama=<?=$data['id_agama'];?>&kelamin=<?=$data['kelamin'];?>" class="btn btn-sm btn-primary"><i class="nav-icon fas fa-edit"></i> Edit Data(metode form)</a>
+
                                      <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#modal-edit" data-nik="<?=$data ['nik'];?>" data-user="<?=$data['user'];?>" data-nama="<?=$data['nama'];?>">
                                      <i class="nav-icon fas fa-edit"></i>Edit  
                                     </button>
@@ -131,8 +139,7 @@ include '../listlink.php';
                                      <i class="nav-icon fas fa-trash-alt"></i>Hapus   
                                     </button>
                             </center>
-                                    <!-- <a href="hapus2.php?unique=<?=$data['nik'];?>&jeneng=<?=$data['nama'];?>" class="btn btn-sm btn-info">
-                                    <i class="nav-icon fas fa-trash-alt"></i> -->
+                                   
 
                                     </a>
                               </td>
