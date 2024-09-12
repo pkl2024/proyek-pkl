@@ -16,14 +16,7 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a href="../backend_data_agama/" class="nav-link <?php if ($konstruktor=='data_agama'){ echo'active';}?>">
-              <i class="nav-icon fas fa-mosque"></i>
-              <p>
-                Data agama
-              </p>
-            </a>
-          </li>
+       
 
           <li class="nav-item">
             <a href="#" class="nav-link">
