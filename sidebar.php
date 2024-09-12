@@ -20,7 +20,7 @@
             <a href="../backend_data_agama/" class="nav-link <?php if ($konstruktor=='data_agama'){ echo'active';}?>">
               <i class="nav-icon fas fa-mosque"></i>
               <p>
-                Data ppppp
+                Data oke
               </p>
             </a>
           </li>
