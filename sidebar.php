@@ -37,42 +37,16 @@
               <li class="nav-item">
               <a href="../backend_data_siswa/" class="nav-link <?php if ($konstruktor=='data_siswa'){ echo'active';}?>">
                   <i class="nav-icon fas fa-users"></i>
-                  <p>Data Siswa </p>
+                  <p> Peserta</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/charts/flot.html" class="nav-link">
                   <i class="nav-icon fas fa-user"></i>
-                  <p>Data Pengajar</p>
+                  <p> Tutorial</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
-                  <i class="nav-icon fas fa-book"></i>
-                  <p>Mata Pelajaran</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i class="nav-icon fas fa-university"></i>
-                  <p>Kelas Rombel</p>
-                </a>
-              </li>
-          </li>
-          <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i class="nav-icon far fa-address-book"></i>
-                  <p>Kelas Mata Pelajaran</p>
-                </a>
-              </li>
-          </li>
-          <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
-                  <i class="nav-icon far fa-calendar-alt"></i>
-                  <p>Periode Akademik</p>
-                </a>
-              </li>
-          </li>
+              
           <li class="nav-item">
                 <a href="pages/charts/uplot.html" class="nav-link">
                   <i class="nav-icon fas fa-bullhorn"></i>
