@@ -7,7 +7,7 @@
             </a>
           </li>
 
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a href="../backend_data_administrator/" class="nav-link <?php if ($konstruktor=='data_administrator'){ echo'active';}?>">
               <i class="nav-icon fas fa-user"></i>
               <p>
@@ -23,9 +23,9 @@
                 Data agama
               </p>
             </a>
-          </li> -->
+          </li>
 
-          <!-- <li class="nav-item">
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-school"></i>
               <p>
@@ -33,7 +33,7 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview"> -->
+            <ul class="nav nav-treeview">
               <li class="nav-item">
               <a href="../backend_data_siswa/" class="nav-link <?php if ($konstruktor=='data_siswa'){ echo'active';}?>">
                   <i class="nav-icon fas fa-users"></i>
@@ -54,7 +54,7 @@
                 </a>
               </li>
           </li>
-<!-- </ul> -->
+        </ul>
           <li class="nav-item">
             <a href="../auth/logout.php" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
